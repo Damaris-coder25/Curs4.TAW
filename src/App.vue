@@ -1,5 +1,8 @@
 <script setup>
-
+import YouDidIt from './components/YouDidIt.vue'
+import BindLink from './components/BindLink.vue'
+import RandomNumber from './components/RandomNumber.vue'
+import Counter from './components/Counter.vue'
 import { onMounted, onUpdated } from 'vue'
 
 onMounted(() => {
@@ -11,58 +14,37 @@ onUpdated(() => {
 })
 
 import{ref} from 'vue'
-const message = ref("Hello from Vue 3!")
-const link = ref('https://emanuel.ro/')
 
-const clickHandler = () => {
-  message.value = "Button clicked!"
-}
 
-const randomNumber = ref(null)
-const updateRandomNumber = () => {
-  randomNumber.value = (Math.random())
-}
 
-const counter = ref(0)
-
-const incrementCounter = () =>{
-  counter.value++
-}
+const students = ref([
+  {name:'Miriam', grade:10},
+  {name:'Leo', grade:9},
+  {name:'Patrick',grade: 8},
+  {name:'Andrei',grade: 7}
+  ])
 </script>
 
+
 <template>
-  <h1>You did it!</h1>
-  <button @click="clickHandler">Click me</button>
-  <p>
-   {{ message }}
-  </p>
-  <br>
-  <input type="text" 
-  v-model="message"
-  @change = "console.log('Text changed')" 
-  @input="console.log('You have typed: ' + $event.target.value)"
-  @keydown="console.log('You pressed: ' + $event.key)" 
-  ></input>
-  <br>
-  <a :href="link" target="_blank">Visit Emanuel website</a>
-  <br>
+  <YouDidIt/>
+  <BindLink/>
+  <RandomNumber/>
+  <Counter/>
+  
+  
   <hr>
-  <h3>Display a random number</h3>
-  <button @click="updateRandomNumber">Get a random number{{ randomNumber }}</button>
-  <div v-if = "randomNumber">
-    <div v-if="randomNumber > 0.5"> Number is bigger or equal to 0.5.</div>
-    <div v-else>Number is lower or equal to 0.5.</div>
-  </div>
-  <br>
-  <div v-if="randomNumber && randomNumber >=0.5">Number is bigger or equal to 0.5</div>
-  <div v-else-if="randomNumber">Number is lower or equal to 0.5</div>
-  <br>
-  <hr>
-  <h3>Counter</h3>
-  <button @click="counter++">Increment v1</button>
-  <button @click="incrementCounter">Increment v2</button>
-  <div>{{ counter }}</div>
+  <h3>Test v-for</h3>
+  <ul>
+    <li v-for="(student, index) of students" :key="index">
+      Name {{ student.name }} > Grade {{ student.grade }}
+    </li>
+  </ul>
 
 </template>
 
-<style scoped></style>
+
+<style>
+@import "bootstrap-icons";
+@import "tailwindcss";
+</style>
