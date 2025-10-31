@@ -18,4 +18,5 @@ const updateRandomNumber = () => {
   <div v-if="randomNumber && randomNumber >=0.5">Number is bigger or equal to 0.5</div>
   <div v-else-if="randomNumber">Number is lower or equal to 0.5</div>
   <br>
+  <hr>
 </template>

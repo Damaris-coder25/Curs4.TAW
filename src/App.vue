@@ -3,6 +3,8 @@ import YouDidIt from './components/YouDidIt.vue'
 import BindLink from './components/BindLink.vue'
 import RandomNumber from './components/RandomNumber.vue'
 import Counter from './components/Counter.vue'
+import BootstrapIcons from './components/BootstrapIcons.vue'
+import StudentsGrades from './components/StudentsGrades.vue'
 import { onMounted, onUpdated } from 'vue'
 
 onMounted(() => {
@@ -14,37 +16,41 @@ onUpdated(() => {
 })
 
 import{ref} from 'vue'
+const showIcons=ref(false)
 
+const icons = ['brightness-high' , 'bell', 'cloud', 'heart', 'star'];
+const icon = ref(icons[0]);
 
+const changeIcon = () => {
+icon.value = icons[Math.floor(Math.random() * icons.length)];
+};
 
-const students = ref([
-  {name:'Miriam', grade:10},
-  {name:'Leo', grade:9},
-  {name:'Patrick',grade: 8},
-  {name:'Andrei',grade: 7}
-  ])
 </script>
 
 
 <template>
+
   <YouDidIt/>
   <BindLink/>
   <RandomNumber/>
-  <Counter/>
-  
-  
-  <hr>
-  <h3>Test v-for</h3>
-  <ul>
-    <li v-for="(student, index) of students" :key="index">
-      Name {{ student.name }} > Grade {{ student.grade }}
-    </li>
-  </ul>
+  <Counter startCount="7"/>
+  <Counter :startCount="3+5"/>
+   <Counter startCount="9"/>
+   <hr>
+  <input type="checkbox" v-model="showIcons">
+  <div v-if="showIcons">
+    <Bootstrap-icons 
+    v-for="(bootstrapIcon, index) of [1,2,3]" 
+    :key="index" 
+    :icon="icon"
+    @iconClick="changeIcon"/>
+  </div>
+  <StudentsGrades/>
 
 </template>
 
 
 <style>
 @import "bootstrap-icons";
-@import "tailwindcss";
+/*@import "tailwindcss";*/
 </style>
