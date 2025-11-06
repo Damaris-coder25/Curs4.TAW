@@ -1,6 +1,6 @@
 <script setup>
 import{ref} from 'vue'
-const message = ref("Hello from Vue 3!")
+const message = ref("Hello from Vue!")
 
 const clickHandler = () => {
   message.value = "Button clicked!"
