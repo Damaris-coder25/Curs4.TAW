@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
-// import App from './App.vue'
-import Flowers from './Flowers.vue'
+import router from './router/index.js'
 
-//createApp(App).mount('#app')
-createApp(Flowers).mount('#app')
+import App from './App.vue'
+
+
+createApp(App).use(router).mount('#app')

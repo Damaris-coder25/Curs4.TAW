@@ -1,5 +1,5 @@
 <script setup>
-import InputCurrency from './InputCurrency.vue';
+import InputCurrency from '@/components/InputCurrency.vue';
 
 import{ref} from 'vue'
 const currencyEUR = ref(0);
