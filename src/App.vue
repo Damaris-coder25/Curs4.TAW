@@ -5,7 +5,7 @@
     <header>
         <nav>
             <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/flowers">Flowers</RouterLink>
+            <RouterLink to="/flowers">Flowers</RouterLink> 
         </nav>
     </header>
     <RouterView />
@@ -15,4 +15,9 @@
 .btn-primary {
         background-color:rgb(192, 235, 238);
     }
+</style>
+
+<style>
+@import "bootstrap-icons";
+/*@import "tailwindcss";*/
 </style>

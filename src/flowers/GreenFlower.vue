@@ -1,15 +1,21 @@
 <script setup>
+defineProps({
+    height: Number,
+    winner: Boolean
+})
 </script>
 
 <template>
-    <div class="flower" style="height: 300px; width: 50px;">
-
-
+    <div class="flower self-end " :class="winner ? 'winner' : ''" :style="`height:${height}px; width: 50px;`">
     </div>
 </template>
 
 <style>
 .flower {
     background-color: green;
+}
+
+.flower.winner {
+    border: 5px solid gold;
 }
 </style>

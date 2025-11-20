@@ -46,6 +46,8 @@ const showIcons=ref(false)
   <br>
   <hr>
     <CurrencyConvertor/>
+  <br>
+  <br>
 
 </template>
 
