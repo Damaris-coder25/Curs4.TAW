@@ -16,9 +16,7 @@
 .btn-primary {
         background-color:rgb(192, 235, 238);
     }
-</style>
-
-<style>
+    
 @import "bootstrap-icons";
 /*@import "tailwindcss";*/
 </style>

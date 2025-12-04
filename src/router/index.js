@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import Flowers from '@/pages/Flowers.vue'
 import Tests from '@/pages/Tests.vue'
 import Computed from '@/pages/Computed.vue'

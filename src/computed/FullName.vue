@@ -6,6 +6,15 @@ const emit = defineEmits(['update:fullName'])
 const firstName=ref("")
 const lastName=ref("")
 
+import { watch } from 'vue'
+watch(firstName, (newVal, oldVal) => {
+    console.log("First name changed from" , oldVal, "to", newVal)
+})
+
+watch([firstName, lastName], ([newF, newL], [oldF, oldL]) => {
+console.log ("Full name changed from", oldF + " " + oldL, "to", newF + " " + newL)
+})
+
 const fullName= computed(() => {
     const fN = firstName.value + " " + lastName.value
     emit("update:fullName", fN)
@@ -26,7 +35,7 @@ const showFullName = ref(false);
     <br>
     <br>
     <button 
-    class="border border-gray-400 px-2" 
+    class="border border-gray-400 px-2 ml-2" 
     type="button" 
     @click="showFullName= !showFullName">
         <span v-if="showFullName">Hide</span>
