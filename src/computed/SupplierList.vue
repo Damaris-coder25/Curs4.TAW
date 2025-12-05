@@ -19,9 +19,9 @@ const supplyers = ref([
 ]);
 
 const filteredSupplyers = computed(() =>
-supplyers.value.filter(s =>
-s.fullName.toLowerCase().includes(search.value.toLowerCase())
-)
+        supplyers.value.filter(s =>
+        s.fullName.toLowerCase().includes(search.value.toLowerCase())
+    )
 );
 
 const addToList = () => {
@@ -37,7 +37,8 @@ const addToList = () => {
 <input class="border" v-model="search" placeholder="Search">
 
 <!--<pre>{{ fullName }} - {{ totalPrice }}</pre>-->
-<button type button class="bg-blue-500 text-white px-4 py-2 ml-4 rounded cursor-pointer" @click="addToList">Add to list of suppliers</button>
+<button type button class="bg-blue-500 text-white px-4 py-2 ml-4 rounded cursor-pointer" @click="addToList"
+>Add to list of suppliers</button>
     <hr class="my-4">
 
 <ul>
