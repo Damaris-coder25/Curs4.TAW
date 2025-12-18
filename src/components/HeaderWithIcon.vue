@@ -11,10 +11,11 @@ icon.value = icons[Math.floor(Math.random() * icons.length)];
 </script>
 
 <template>
-     <h3>Bootstrap Icons 
-        <BootstrapIcons 
-        :icon="icon"
-        @iconClick="changeIcon"/>
-    </h3>
-     
+  <h3>
+    Bootstrap Icons 
+    <BootstrapIcons 
+      :icon="icon"
+      @icon-click="changeIcon"
+    />
+  </h3>
 </template>

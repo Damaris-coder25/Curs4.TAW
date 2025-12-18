@@ -7,7 +7,11 @@ import TaskBody from './TaskBody.vue';
 import TaskFooter from './TaskFooter.vue';
 </script>
 <template>
-    <TaskHeader />
-    <TaskBody v-for="(task,index) in taskStore.tasks"  :task="task" :key="index"/>
-    <TaskFooter />
+  <TaskHeader />
+  <TaskBody
+    v-for="(task,index) in taskStore.tasks"
+    :key="index"
+    :task="task"
+  />
+  <TaskFooter />
 </template>

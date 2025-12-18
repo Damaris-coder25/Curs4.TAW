@@ -34,16 +34,29 @@ const addToList = () => {
 </script>
 
 <template>
-<input class="border" v-model="search" placeholder="Search">
+  <input
+    v-model="search"
+    class="border"
+    placeholder="Search"
+  >
 
-<!--<pre>{{ fullName }} - {{ totalPrice }}</pre>-->
-<button type button class="bg-blue-500 text-white px-4 py-2 ml-4 rounded cursor-pointer" @click="addToList"
->Add to list of suppliers</button>
-    <hr class="my-4">
+  <!--<pre>{{ fullName }} - {{ totalPrice }}</pre>-->
+  <button
+    type
+    button
+    class="bg-blue-500 text-white px-4 py-2 ml-4 rounded cursor-pointer"
+    @click="addToList"
+  >
+    Add to list of suppliers
+  </button>
+  <hr class="my-4">
 
-<ul>
-<li v-for="(supplyer, i) in filteredSupplyers" :key="i">
-{{ supplyer.fullName }} > {{ supplyer.totalPrice}}
-</li>
-</ul>
+  <ul>
+    <li
+      v-for="(supplyer, i) in filteredSupplyers"
+      :key="i"
+    >
+      {{ supplyer.fullName }} > {{ supplyer.totalPrice }}
+    </li>
+  </ul>
 </template>

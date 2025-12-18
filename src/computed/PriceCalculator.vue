@@ -13,13 +13,25 @@ const formattedPrice = computed(() => {
 </script>
 
 <template>
-    Price:
-    <input class="border" type="number" v-model="price">
-    <br>
-    Quantity:
-    <input class="border" type="number" v-model="quantity">
-    <br>
-    Tax:
-    <input class="border" type="number" v-model="tax">
-    <p>Total Price: <b>{{ formattedPrice }}</b></p>
+  Price:
+  <input
+    v-model="price"
+    class="border"
+    type="number"
+  >
+  <br>
+  Quantity:
+  <input
+    v-model="quantity"
+    class="border"
+    type="number"
+  >
+  <br>
+  Tax:
+  <input
+    v-model="tax"
+    class="border"
+    type="number"
+  >
+  <p>Total Price: <b>{{ formattedPrice }}</b></p>
 </template>

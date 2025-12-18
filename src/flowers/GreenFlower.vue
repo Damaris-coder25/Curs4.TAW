@@ -6,8 +6,11 @@ defineProps({
 </script>
 
 <template>
-    <div class="flower self-end " :class="winner ? 'winner' : ''" :style="`height:${height}px; width: 50px;`">
-    </div>
+  <div
+    class="flower self-end "
+    :class="winner ? 'winner' : ''"
+    :style="`height:${height}px; width: 50px;`"
+  />
 </template>
 
 <style>

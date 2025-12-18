@@ -24,31 +24,36 @@ const showIcons=ref(false)
 
 
 <template>
-
-  <YouDidIt/>
-  <BindLink/>
+  <YouDidIt />
+  <BindLink />
   <hr>
-  <RouterLink to="/flowers">Flowers</RouterLink>
-  <RandomNumber/>
-  <Counter startCount="7"/>
-  <Counter :startCount="3+5"/>
-   <Counter startCount="9"/>
-   <hr>
-  <input type="checkbox" v-model="showIcons">
+  <RouterLink to="/flowers">
+    Flowers
+  </RouterLink>
+  <RandomNumber />
+  <Counter start-count="7" />
+  <Counter :start-count="3+5" />
+  <Counter start-count="9" />
+  <hr>
+  <input
+    v-model="showIcons"
+    type="checkbox"
+  >
   <div v-if="showIcons">
     <HeaderWithIcon
       v-for="(header, index) of [1,2,3]" 
-      :key="index" />
-      <HeaderWithIcon
-      :key="index" />
+      :key="index"
+    />
+    <HeaderWithIcon
+      :key="index"
+    />
   </div>
-  <StudentsGrades/>
+  <StudentsGrades />
   <br>
   <hr>
-    <CurrencyConvertor/>
+  <CurrencyConvertor />
   <br>
   <br>
-
 </template>
 
 

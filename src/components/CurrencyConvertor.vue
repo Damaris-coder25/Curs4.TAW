@@ -23,8 +23,19 @@ const recalculateCurrency = () => {
 </script>
 
 <template>
-    <h3>Currency Convertor</h3>
-    <InputCurrency :value="currencyEUR" @changeValue="computeEURtoRON"/>
-    <input type="number" v-model="coursEURRON" @input="recalculateCurrency">
-    <InputCurrency :value="currencyRON" @changeValue="computeRONtoEUR"/>
+  <h3>Currency Convertor</h3>
+  <InputCurrency
+    :value="currencyEUR"
+    @change-value="computeEURtoRON"
+  />
+  <input
+    v-model="coursEURRON"
+    type="number"
+    @input="recalculateCurrency"
+   
+  >
+  <InputCurrency
+    :value="currencyRON"
+    @change-value="computeRONtoEUR"
+  />
 </template>``

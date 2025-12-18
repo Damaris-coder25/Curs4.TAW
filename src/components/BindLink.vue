@@ -5,7 +5,10 @@ const link = ref('https://emanuel.ro/')
 
 
 <template>
-<br>
-  <a :href="link" target="_blank">Visit Emanuel website</a>
+  <br>
+  <a
+    :href="link"
+    target="_blank"
+  >Visit Emanuel website</a>
   <br>
 </template>

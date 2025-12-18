@@ -13,8 +13,23 @@ const incrementCounter = () =>{
 
 <template>
   <h3>Counter</h3>
-  <button class="border" @click="counter++">Increment v1</button>
-  <button class="border" @click="incrementCounter">Increment v2</button>
-  <button class="border" @click="counterStore.count++">Increment v3 {{ counterStore.count }}</button>
+  <button
+    class="border"
+    @click="counter++"
+  >
+    Increment v1
+  </button>
+  <button
+    class="border"
+    @click="incrementCounter"
+  >
+    Increment v2
+  </button>
+  <button
+    class="border"
+    @click="counterStore.count++"
+  >
+    Increment v3 {{ counterStore.count }}
+  </button>
   <div>{{ counter }}</div>
 </template>

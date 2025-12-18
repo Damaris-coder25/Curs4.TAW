@@ -3,6 +3,9 @@ defineProps(['value'])
 </script>
 
 <template>
-    <input type="number" :value="value" 
-    @input="$emit('changeValue',$event.target.value)"/>
+  <input
+    type="number"
+    :value="value" 
+    @input="$emit('changeValue',$event.target.value)"
+  >
 </template>

@@ -27,23 +27,32 @@ const showFullName = ref(false);
 </script>
 
 <template>
-    First Name:
-    <input class="border" type="text" v-model="firstName">
-    <br>
-    Last Name:
-    <input class="border" type="text" v-model="lastName">
-    <br>
-    <br>
-    <button 
+  First Name:
+  <input
+    v-model="firstName"
+    class="border"
+    type="text"
+  >
+  <br>
+  Last Name:
+  <input
+    v-model="lastName"
+    class="border"
+    type="text"
+  >
+  <br>
+  <br>
+  <button 
     class="border border-gray-400 px-2 ml-2" 
     type="button" 
-    @click="showFullName= !showFullName">
-        <span v-if="showFullName">Hide</span>
-        <span v-else>Show</span> full name
-    </button>
+    @click="showFullName= !showFullName"
+  >
+    <span v-if="showFullName">Hide</span>
+    <span v-else>Show</span> full name
+  </button>
 
-    <div v-if="showFullName">
-    <p>Your Full Name: {{ fullName}}</p>
+  <div v-if="showFullName">
+    <p>Your Full Name: {{ fullName }}</p>
     <p>{{ greeting }}</p>
-    </div>
+  </div>
 </template>

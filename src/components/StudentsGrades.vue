@@ -9,10 +9,13 @@ const students = ref([
 </script>
 
 <template>
- <hr>
+  <hr>
   <h3>Test v-for</h3>
   <ul>
-    <li v-for="(student, index) of students" :key="index">
+    <li
+      v-for="(student, index) of students"
+      :key="index"
+    >
       Name {{ student.name }} > Grade {{ student.grade }}
     </li>
   </ul>
