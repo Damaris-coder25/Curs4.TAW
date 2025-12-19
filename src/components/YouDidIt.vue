@@ -1,5 +1,5 @@
 <script setup>
-import{ref} from 'vue'
+import { ref } from 'vue'
 const message = ref("Hello from Vue!")
 
 const clickHandler = () => {
@@ -16,11 +16,6 @@ const clickHandler = () => {
     {{ message }}
   </p>
   <br>
-  <input
-    v-model="message" 
-    type="text"
-    @change="console.log('Text changed')" 
-    @input="console.log('You have typed: ' + $event.target.value)"
-    @keydown="console.log('You pressed: ' + $event.key)" 
-  >
-</template>   
+  <input v-model="message" type="text" @change="console.log('Text changed')"
+    @input="console.log('You have typed: ' + $event.target.value)" @keydown="console.log('You pressed: ' + $event.key)">
+</template>
