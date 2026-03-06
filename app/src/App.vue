@@ -1,9 +1,8 @@
 <script setup>
 import { useAuth } from "@/stores/auth"
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 const auth = useAuth()
 const router = useRouter()
-const route = useRoute()
 </script>
 
 <template>
