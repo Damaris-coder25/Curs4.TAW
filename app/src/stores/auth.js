@@ -1,23 +1,32 @@
+import router from "@/router"
 import { defineStore } from "pinia"
-
-const VALID_USERNAME = "user"
-const VALID_PASSWORD = "pass"
+import axios from "axios"
 
 export const useAuth = defineStore("auth", {
   state: () => ({
-    isAuthenticated: false,
+    isAuthenticated: false
   }),
   actions: {
-    checkCredentials(username, password) {
-      
-        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+    async checkCredentials(username, password) {
+      try {
+        const response = await axios.post("http://localhost:3000/auth/login", {
+          username,
+          password
+        })
+        console.log("Login response:", response.data)
+        if (response.data.success) {
           this.isAuthenticated = true
+          router.push("/")
         } else {
           this.isAuthenticated = false
         }
+      } catch (error) {
+        this.isAuthenticated = false
+      }
     },
     logout() {
-        this.isAuthenticated = false
-    },
+      this.isAuthenticated = false
+      router.push("/login")
+    }
   }
 })

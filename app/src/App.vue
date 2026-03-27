@@ -1,8 +1,20 @@
 <script setup>
 import { useAuth } from "@/stores/auth"
 import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
 const auth = useAuth()
 const router = useRouter()
+
+onMounted(() => {
+  if (!auth.isAuthenticated) {
+    router.push('/login')
+  }
+})
+
+function logout() {
+  auth.logout()
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -23,9 +35,10 @@ const router = useRouter()
       <RouterLink to="/tasks">
         Tasks
       </RouterLink>
+      <button class="btn btn-outline-primary color-red" @click="logout">Logout</button>
     </nav>
   </header>
-  <RouterView v-if="auth.isAuthenticated || router.currentRoute.value.path === '/login'" />
+  <RouterView />
 </template>
 
 <style>

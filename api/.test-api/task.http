@@ -1,0 +1,34 @@
+@mainUrl = http://localhost:3000/task
+
+###
+#
+GET {{mainUrl}}/get-all
+Content-Type: application/json
+
+###
+#
+POST {{mainUrl}}/add
+Content-Type: application/json
+
+{
+  "task": "Test 1"
+}
+
+###
+#
+DELETE {{mainUrl}}/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+#
+PUT {{mainUrl}}/update-title
+Content-Type: application/json  
+
+{
+  "id": 2,
+  "newTitle": "Changed title"
+}
