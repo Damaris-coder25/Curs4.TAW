@@ -6,11 +6,15 @@ import TaskHeader from './TaskHeader.vue';
 import TaskBody from './TaskBody.vue';
 import TaskFooter from './TaskFooter.vue';
 
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 onMounted(() => {
   taskStore.getTasks();
 });
+onUnmounted(() => {
+  taskStore.$reset();
+});
 </script>
+
 <template>
   <TaskHeader />
   <TaskBody v-for="(task, index) in taskStore.tasks" :key="index" :task="task"

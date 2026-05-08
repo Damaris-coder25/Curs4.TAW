@@ -3,35 +3,37 @@ import { Task } from "../database/entities/task.model.js";
 
 const router = Router();
 
-const tasks = [
-  {
-    id: 1,
-    title: "Learn Vue",
-    done: false,
-    favorite: false,
-  },
-  {
-    id: 2,
-    title: "Learn Pinia",
-    done: false,
-    favorite: false,
-  },
-];
+const tasks = [];
 
-router.get("/get-all", (req, res) => {
-  res.json(tasks);
+router.get("/get-all", async (req, res) => {
+  tasks.length = 0;
+  const tasksForDB = await Task.findAll();
+  tasksForDB.forEach((task) => {
+    tasks.push({
+      id: task.dataValues.id,
+      title: task.dataValues.title,
+      done: Boolean(task.dataValues.done),
+      favorite: Boolean(task.dataValues.favorite),
+    });
+  });
+
+  res.send({ tasks });
 });
 
 router.post("/add", async (req, res) => {
   const title = req.body.task;
 
-  await Task.create({
+  const task = await Task.create({
     title,
   });
+  tasks.push(task);
 
-  tasks.push(title);
-  console.log(tasks);
-  res.send({ success: true });
+  res.send({
+    id: task.dataValues.id,
+    title: task.dataValues.title,
+    done: false,
+    favorite: false,
+  });
 });
 
 router.delete("/delete", async (req, res) => {
@@ -50,29 +52,48 @@ router.put("/update-title", async (req, res) => {
   const newTitle = req.body.newTitle;
 
   await Task.update(
-    { title: newTitle },
     {
-      where: {
-        id,
-      },
+      title: newTitle,
+    },
+    {
+      where: { id },
     },
   );
+
   const index = tasks.findIndex((task) => task.id === id);
   tasks[index].title = newTitle;
   res.send({ success: true });
 });
 
-router.put("/update-favorite", (req, res) => {
+router.put("/update-done", async (req, res) => {
   const id = req.body.id;
   const index = tasks.findIndex((task) => task.id === id);
-  tasks[index].favorite = !tasks[index].favorite;
+
+  await Task.update(
+    {
+      done: tasks[index].done,
+    },
+    {
+      where: { id },
+    },
+  );
+  tasks[index].done = !tasks[index].done;
   res.send({ success: true });
 });
 
-router.put("/update-done", (req, res) => {
+router.put("/update-favorite", async (req, res) => {
   const id = req.body.id;
   const index = tasks.findIndex((task) => task.id === id);
-  tasks[index].done = !tasks[index].done;
+
+  await Task.update(
+    {
+      favorite: !tasks[index].favorite,
+    },
+    {
+      where: { id },
+    },
+  );
+  tasks[index].favorite = !tasks[index].favorite;
   res.send({ success: true });
 });
 

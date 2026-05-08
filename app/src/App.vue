@@ -13,7 +13,6 @@ onMounted(() => {
 
 function logout() {
   auth.logout()
-  router.push('/login')
 }
 </script>
 
@@ -35,7 +34,7 @@ function logout() {
       <RouterLink to="/tasks">
         Tasks
       </RouterLink>
-      <button class="btn btn-outline-primary color-red" @click="logout">Logout</button>
+      <button class="rounded bg-red-500 px-4 py-2 text-white" @click="logout">Logout</button>
     </nav>
   </header>
   <RouterView />

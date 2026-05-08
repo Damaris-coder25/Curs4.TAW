@@ -2,23 +2,16 @@
 import { useTask } from '@/stores/task';
 const taskStore = useTask();
 
-import { ref } from 'vue';
-const isAddingTask = ref(false)
-
 const addNewTask = () => {
-  taskStore.addTask({
-    id: Math.floor(Math.random() * 1000000),
-    title: newTaskTitle.value,
-    done: false,
-    favorite: false
-  });
-  isAddingTask.value = false;
-  newTaskTitle.value = '';
+  taskStore.addTask(newTaskTitle.value)
+  isAddingTask.value = false
+  newTaskTitle.value = ""
 }
 
 const newTaskTitle = ref('');
 
-
+import { ref } from 'vue';
+const isAddingTask = ref(false)
 </script>
 
 <template>

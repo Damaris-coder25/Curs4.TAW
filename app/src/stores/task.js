@@ -15,10 +15,10 @@ export const useTask = defineStore("task", {
       }
     },
 
-    async addTask(task) {
-      this.tasks.push(task)
+    async addTask(title) {
       try {
-        await axios.post("http://localhost:3000/task/add", { task })
+        const task = await axios.post("http://localhost:3000/task/add", { title })
+        this.tasks.push(task.data)
       } catch (error) {
         console.error("Error adding task:", error)
       }

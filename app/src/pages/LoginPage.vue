@@ -3,8 +3,9 @@ import { useAuth } from "@/stores/auth"
 import { ref } from "vue"
 const auth = useAuth()
 
-const authentification = () => {
-    auth.checkCredentials(username.value, password.value)
+const message = ref("")
+const authentification = async () => {
+    message.value = await auth.checkCredentials(username.value, password.value)
 }
 
 const username = ref("")
@@ -21,6 +22,9 @@ const password = ref("")
         <div>
             <input v-model="password" type="password" placeholder="Password" class="border p-2 mb-2" />
         </div>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded" @click="authentification">Login</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" @click="authentification">
+            Login
+        </button>
+        <p class="mt-4 text-red-500">{{ message }}</p>
     </div>
 </template>

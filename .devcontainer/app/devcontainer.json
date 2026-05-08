@@ -25,9 +25,7 @@
             }
         }
     },
-    "forwardPorts": [
-        5173
-    ],
+    "forwardPorts": [ 5173],
     "containerEnv": {
         "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0"
     },

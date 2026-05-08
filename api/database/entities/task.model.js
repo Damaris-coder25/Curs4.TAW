@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../db.js";
+import { Description } from "./description.model.js";
 
 export const Task = sequelize.define(
   "Task",
@@ -26,3 +27,6 @@ export const Task = sequelize.define(
     paranoid: true,
   },
 );
+
+Task.hasOne(Description);
+Description.belongsTo(Task);

@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "username": "admin",
-  "password": "password"
+  "password": "admin"
 }   
 ###
 #

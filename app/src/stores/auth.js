@@ -19,9 +19,11 @@ export const useAuth = defineStore("auth", {
           router.push("/")
         } else {
           this.isAuthenticated = false
+          return response.data.message
         }
       } catch (error) {
         this.isAuthenticated = false
+        return "An error occurred during login."
       }
     },
     logout() {
